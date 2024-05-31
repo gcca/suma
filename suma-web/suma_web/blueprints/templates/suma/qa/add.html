@@ -1,0 +1,59 @@
+{% extends "suma/qa/home.html" %} {% block content %}
+<form id="id-add-form" method="post">
+  <div class="field">
+    <label class="label">Título</label>
+    <div class="control">
+      {% if title %}
+      <input
+        class="input is-success"
+        type="text"
+        name="title"
+        value="{{ title }}"
+      />
+      {% else %}
+      <input class="input" type="text" name="title" {{ title_focus }} />
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Contenido</label>
+    <div class="control">
+      {% if content %}
+      <textarea class="textarea is-success" name="content">{{ content }}</textarea>
+      {% else %}
+      <textarea class="textarea" name="content" {{ content_focus }}></textarea>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Etiquetas</label>
+    <div class="control">
+      {% if tags %}
+      <input
+        class="input is-success"
+        type="text"
+        name="tags"
+        value="{{ tags }}"
+      />
+      {% else %}
+      <input class="input" type="text" name="tags" {{ tags_focus }} />
+      {% endif %}
+    </div>
+    <p class="help">Ejemplo: world,demo,sales</p>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link">Guardar</button>
+    </div>
+    <div class="control">
+      <a class="button is-link is-light" href="/qa/home">Cancelar</a>
+    </div>
+  </div>
+</form>
+<script>
+  {% include "suma/qa/add.js" %}
+</script>
+{% endblock %}

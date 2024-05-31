@@ -1,0 +1,9 @@
+{% extends "suma/qa/base.html" %}
+
+{% block main %}
+<div class="columns">
+  <div class="column is-one-quarter">{% include "suma/qa/sidebar.html" %}</div>
+  <div class="column">{% block content %}{% endblock %}</div>
+  <div class="column is-one-quarter"></div>
+</div>
+{% endblock %}
